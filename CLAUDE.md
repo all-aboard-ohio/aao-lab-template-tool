@@ -1,6 +1,6 @@
 # CLAUDE.md — AAO Data Lab Tool
 
-This repo is an **AAO Data Lab web tool** built with React + Vite + Tailwind CSS. Use this file for task context.
+This repo is an **AAO Data Lab web tool** built with React + Vite + Tailwind CSS. Use this file for context when working on any task in this codebase.
 
 ## Repo Layout
 
@@ -13,14 +13,14 @@ src/
   utils/        # Pure utility functions
   App.jsx       # Root — includes required AAO components
   main.jsx
-index.html            # Loads AAO banner CDN script
-tailwind.config.js    # AAO design tokens
-.github/workflows/deploy.yml  # GitHub Pages deploy action
+index.html           # Loads AAO banner CDN script
+tailwind.config.js   # AAO design tokens
+.github/workflows/deploy.yml  # GitHub Pages deploy
 ```
 
 ## Required in Every Build
 
-`App.jsx` must always contain — do not remove:
+`App.jsx` must always contain:
 
 ```jsx
 <aao-site-header mode="compact" dev-url="https://lab.allaboardohio.org"></aao-site-header>
@@ -29,31 +29,31 @@ tailwind.config.js    # AAO design tokens
 ></aao-notification>
 ```
 
-If using paid cloud infrastructure (Google Cloud), also include `<aao-donation></aao-donation>`.
+If using paid cloud infrastructure, also include `<aao-donation></aao-donation>`.
 
 ## Key Constraints
 
 - No personal data collection, no analytics trackers
-- WCAG 2.1 AA minimum — test with axe DevTools before every PR
-- Use AAO Tailwind token classes (`aao-dark-blue`, `aao-dark-red`, etc.) — never raw hex values
+- WCAG 2.1 AA minimum — test with axe DevTools before PRs
+- Use AAO Tailwind token classes (`aao-dark-blue`, `aao-dark-red`, etc.) — never raw hex
 - Mobile-first with Tailwind breakpoints
-- Prefer static/client-side over server-side wherever possible
+- Prefer static / client-side over server-side
 
 ## Task Playbooks
 
-**Adding a component:**
+**Adding a new component:**
 1. Create `src/components/ComponentName.jsx`
-2. Use `font-heading` for headings, `font-body` for body text, AAO color tokens
-3. Add semantic HTML and ARIA labels for accessibility
+2. Use `font-heading` for headings, `font-body` for text, AAO color tokens
+3. Add `aria-label` or semantic HTML for accessibility
 
-**Changing content/data:**
+**Changing data / content:**
 - Static data lives in `src/data/`
-- Fetch logic belongs in a custom hook in `src/hooks/`
+- If data is fetched, keep fetch logic in a custom hook in `src/hooks/`
 
 **Deploying:**
-- Push to `main` → GitHub Actions auto-deploys to GitHub Pages
-- For a custom subdomain (`*.lab.allaboardohio.org`), request in `#infrastructure` on Slack
-- Check `.github/workflows/deploy.yml` for config
+- Push to `main` → GitHub Actions builds and deploys to GitHub Pages automatically
+- Check `.github/workflows/deploy.yml` for configuration
+- To use a custom subdomain, request it in `#infrastructure` on Slack
 
 ## Reference Docs
 
@@ -62,4 +62,3 @@ If using paid cloud infrastructure (Google Cloud), also include `<aao-donation><
 - Requirements: https://github.com/all-aboard-ohio/aao-lab-docs/blob/main/requirements.md
 - Architecture: https://github.com/all-aboard-ohio/aao-lab-docs/blob/main/architecture.md
 - Contributing: https://github.com/all-aboard-ohio/aao-lab-docs/blob/main/contributing.md
-- Project management: https://github.com/all-aboard-ohio/aao-lab-docs/blob/main/project-management.md
